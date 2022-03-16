@@ -12,9 +12,25 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{AC0F4B5F-F3C1-4927-A797-91B4622A6DCB}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
-		deployment.yml = deployment.yml
 		docker-compose.yml = docker-compose.yml
 		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "k8s", "k8s", "{A6D9A434-1C85-4113-B0DC-3BF7B96789F9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "send", "send", "{2977B9C8-1B86-400A-AE0D-9ECE8057A4D9}"
+	ProjectSection(SolutionItems) = preProject
+		deployment-send.yml = deployment-send.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "receive", "receive", "{634A8E95-35C9-4CA7-BFED-F5FAF05D4BE0}"
+	ProjectSection(SolutionItems) = preProject
+		deployment-receive.yml = deployment-receive.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scalling", "scalling", "{F94EC501-5BAD-420F-B1AB-7C050534C743}"
+	ProjectSection(SolutionItems) = preProject
+		scalling.yml = scalling.yml
 	EndProjectSection
 EndProject
 Global
@@ -38,6 +54,9 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{FC98264E-A170-44A0-B411-4AD5BE8471D9} = {FACFF19A-8FB9-4979-84B5-D6F8C3E67194}
 		{3B43ACAC-7980-4BDF-BF85-F67832C289F0} = {FACFF19A-8FB9-4979-84B5-D6F8C3E67194}
+		{2977B9C8-1B86-400A-AE0D-9ECE8057A4D9} = {A6D9A434-1C85-4113-B0DC-3BF7B96789F9}
+		{634A8E95-35C9-4CA7-BFED-F5FAF05D4BE0} = {A6D9A434-1C85-4113-B0DC-3BF7B96789F9}
+		{F94EC501-5BAD-420F-B1AB-7C050534C743} = {A6D9A434-1C85-4113-B0DC-3BF7B96789F9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E4F1478F-E68D-4BBD-9E5C-9D8578E3C081}

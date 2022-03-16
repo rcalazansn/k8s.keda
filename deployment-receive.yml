@@ -1,0 +1,39 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: kedareceivek8s
+spec:
+  selector:
+    matchLabels:
+      app: kedareceivek8s
+  template:
+    metadata:
+      labels:
+        app: kedareceivek8s
+    spec:
+      containers:
+        - name: receivek8s
+          image: rcalazansn/keda-receive
+          env:
+            - name: RABBITMQ__Hostname
+              value: "192.168.0.176"
+            - name: RABBITMQ__Port
+              value: "5672"
+            - name: RABBITMQ__UserName
+              value: calazans
+            - name: RABBITMQ__Password
+              value: calazans
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+    name: receivek8s-service
+spec:
+    selector:
+      app: kedareceivek8s
+    ports:
+      - port: 80 #service port
+        targetPort: 8077 #container port
+    type: ClusterIP
