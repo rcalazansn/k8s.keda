@@ -10,6 +10,12 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{FACFF19A-8FB9-4979-84B5-D6F8C3E67194}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{AC0F4B5F-F3C1-4927-A797-91B4622A6DCB}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		deployment.yml = deployment.yml
+		docker-compose.yml = docker-compose.yml
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

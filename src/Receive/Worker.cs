@@ -12,19 +12,25 @@ namespace Receive
     public class Worker : BackgroundService
     {
         private readonly ILogger<Worker> _logger;
+        private readonly RabbitMq _rabbitMq;
 
-        public Worker(ILogger<Worker> logger)
+        public Worker(ILogger<Worker> logger, RabbitMq rabbitMq)
         {
             _logger = logger;
+            _rabbitMq = rabbitMq;
         }
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
+            _logger.LogInformation("Esperando 30 segundo para iniciar...");
+            Thread.Sleep(TimeSpan.FromSeconds(30));
+
             var factory = new ConnectionFactory()
             {
-                HostName = "localhost",
-                Password = "guest",
-                UserName = "guest"
+                HostName = _rabbitMq.Hostname,
+                Password = _rabbitMq.UserName,
+                UserName = _rabbitMq.Password,
+                Port = _rabbitMq.Port
             };
 
             var connection = factory.CreateConnection();

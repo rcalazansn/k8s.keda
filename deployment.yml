@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kedadeployment
+spec:
+  replicas: 10
+  selector:
+    matchLabels:
+      app: kedarabbitmq
+  template:
+    metadata:
+      labels:
+        app: kedarabbitmq
+    spec:
+      containers:
+        - name: site
+          image: kubedevio/nginx-color:green
+          ports:
+            - containerPort: 80

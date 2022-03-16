@@ -1,0 +1,41 @@
+version: "3.2"
+services:
+
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: rabbitmqkeda
+    ports:
+        - 5672:5672
+        - 15672:15672
+    networks:
+        - rabbitmq_keda
+
+  keda-send:
+    image: rcalazansn/keda-send
+    container_name: kedasend
+    environment:
+      RabbitMq__Hostname: rabbitmq
+      RabbitMq__Port: 5672
+      RabbitMq__UserName: guest
+      RabbitMq__Password: guest
+    networks:
+      - rabbitmq_keda
+    depends_on:
+      - rabbitmq
+
+  keda-receive:
+    image: rcalazansn/keda-receive
+    container_name: kedareceive
+    environment:
+      RABBITMQ__Hostname: rabbitmq
+      RABBITMQ__Port: 5672
+      RABBITMQ__UserName: guest
+      RABBITMQ__Password: guest
+    networks:
+      - rabbitmq_keda
+    depends_on:
+      - rabbitmq
+
+networks:
+  rabbitmq_keda:
+    driver: bridge
