@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   name: kedareceivek8s
 spec:
+  replicas: 1
   selector:
     matchLabels:
       app: kedareceivek8s
@@ -16,7 +17,7 @@ spec:
           image: rcalazansn/keda-receive
           env:
             - name: RABBITMQ__Hostname
-              value: "192.168.0.176"
+              value: "ENDERECO_RABBIT"
             - name: RABBITMQ__Port
               value: "5672"
             - name: RABBITMQ__UserName

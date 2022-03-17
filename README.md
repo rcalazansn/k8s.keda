@@ -5,6 +5,8 @@ docker run -d -p 15672:15672 -p 5672:5672 rabbitmq:3-management
 user:  guest
 senha: guest
 
+docker-compose up -d
+
 -----------------------------------
 Utilizando k3d (cluster)
 	k3d cluster create kedacluster --no-lb
@@ -44,3 +46,6 @@ kubectl get secrets
 kubectl get scaledobjects -n sendreceive
 kubectl get pod -n sendreceive
 
+
+kubectl logs kedasendk8s-5c4ddfb49b-srwfm -n sendreceive -f
+kubectl logs kedasendk8s-5c4ddfb49b-srwfm -n sendreceive --tail=10
